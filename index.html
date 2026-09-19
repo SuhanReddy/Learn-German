@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn German LG - 16,000 Word Master & Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand" id="brandHomeBtn">
+      <div class="brand-logo">LG</div>
+      <div>
+        <div class="brand-title">Learn German LG</div>
+      </div>
+      <span class="brand-tag" id="vocabCountBadge">16,000 Vocab Capable</span>
+    </div>
+    <div class="nav-stats">
+      <div class="stat-pill">🔥 <span id="streakStat">0</span> Streak</div>
+      <div class="stat-pill">⭐ <span id="xpStat">0</span> XP</div>
+      <button class="btn-icon" id="openInfoBtn" title="Help & Overview">ℹ️</button>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="nav-tabs-wrapper">
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-tab="articleTab">Der • Die • Das</button>
+      <button class="tab-btn" data-tab="enDeTab">English ➔ German (4)</button>
+      <button class="tab-btn" data-tab="deEnTab">German ➔ English (4)</button>
+      <button class="tab-btn" data-tab="voiceTab">Speaking & Voice Test</button>
+      <button class="tab-btn" data-tab="blitzTab">60s Speed Blitz</button>
+      <button class="tab-btn" data-tab="managerTab">12k–16k Pack Manager</button>
+      <button class="tab-btn" data-tab="grammarTab">16k Grammar Logic</button>
+      <button class="tab-btn" data-tab="lexiconTab">Dictionary Explorer</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- TAB 1: DER DIE DAS TRAINER -->
+    <div id="articleTab" class="view-panel active">
+      <div class="card">
+        <div class="word-prompt-box">
+          <div class="word-sub" id="artPromptMeaning">Meaning in English</div>
+          <div class="word-main" id="artPromptWord">Haus</div>
+          <button class="audio-btn" id="listenArtBtn">🔊 Listen (Native Pronunciation)</button>
+        </div>
+        <div class="articles-grid">
+          <button class="btn-art der" data-art="der">der <span class="art-sub">Masculine (1)</span></button>
+          <button class="btn-art die" data-art="die">die <span class="art-sub">Feminine (2)</span></button>
+          <button class="btn-art das" data-art="das">das <span class="art-sub">Neuter (3)</span></button>
+        </div>
+        <div id="artExplanation" class="explanation-banner"></div>
+      </div>
+    </div>
+
+    <!-- TAB 2: ENGLISH -> GERMAN (4 CHOICES) -->
+    <div id="enDeTab" class="view-panel">
+      <div class="card">
+        <div class="word-prompt-box">
+          <div class="word-sub">Translate into German:</div>
+          <div class="word-main" id="enDePrompt">the bread</div>
+        </div>
+        <div class="choices-grid" id="enDeChoices"></div>
+        <div id="enDeExplanation" class="explanation-banner"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: GERMAN -> ENGLISH (4 CHOICES) -->
+    <div id="deEnTab" class="view-panel">
+      <div class="card">
+        <div class="word-prompt-box">
+          <div class="word-sub">What does this German word mean?</div>
+          <div class="word-main" id="deEnPrompt">das Frühstück</div>
+          <button class="audio-btn" id="listenDeEnBtn">🔊 Listen</button>
+        </div>
+        <div class="choices-grid" id="deEnChoices"></div>
+        <div id="deEnExplanation" class="explanation-banner"></div>
+      </div>
+    </div>
+
+    <!-- TAB 4: SPEAKING & VOICE TEST -->
+    <div id="voiceTab" class="view-panel">
+      <div class="card center-content">
+        <div class="word-sub">Pronounce or Type this German Word:</div>
+        <div class="word-main mt-sm" id="voiceWordPrompt">die Entschuldigung</div>
+        <div class="word-sub mb-md" id="voiceTranslationPrompt">the apology / excuse</div>
+        
+        <div class="voice-control-box">
+          <button id="micBtn" class="mic-record-btn" title="Click to Speak">🎙️</button>
+          <div id="voiceStatus">Click microphone and speak clearly in German</div>
+          <input type="text" id="typeInputAnswer" class="input-text-answer" placeholder="Or type your German answer here..." />
+          <button class="btn-action" id="submitVoiceTextBtn">Check Answer (Enter)</button>
+        </div>
+        <div id="voiceExplanation" class="explanation-banner"></div>
+      </div>
+    </div>
+
+    <!-- TAB 5: 60s SPEED BLITZ -->
+    <div id="blitzTab" class="view-panel">
+      <div class="card center-content">
+        <div class="blitz-stats-row">
+          <div>⏱️ Time Left: <strong id="blitzTime">60</strong>s</div>
+          <div>🎯 Blitz Score: <strong id="blitzScore">0</strong></div>
+        </div>
+        <div class="word-prompt-box">
+          <div class="word-sub" id="blitzSub">Translate:</div>
+          <div class="word-main" id="blitzWord">Wort</div>
+        </div>
+        <div class="choices-grid" id="blitzChoices"></div>
+        <button class="btn-action" id="blitzStartBtn">Start 60-Second Challenge</button>
+      </div>
+    </div>
+
+    <!-- TAB 6: 12K-16K VOCABULARY PACK MANAGER -->
+    <div id="managerTab" class="view-panel">
+      <div class="card">
+        <div class="pack-hero">
+          <h2>12,000 – 16,000 Active Vocabulary Manager</h2>
+          <p class="pack-desc">
+            Native German speakers employ between <strong>12,000 and 16,000 active words</strong> in everyday conversation. This engine loads and indexes large frequency datasets directly in your browser.
+          </p>
+          <div class="pack-stats-row">
+            <div class="pack-metric">
+              <strong id="totalVocabCounter">0</strong>
+              <span>Active Words in Memory</span>
+            </div>
+            <div class="pack-metric">
+              <strong id="customPackCounter">0</strong>
+              <span>Imported Custom Items</span>
+            </div>
+            <div class="pack-metric">
+              <strong id="generatorStatus">Ready</strong>
+              <span>Expansion Engine</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mb-sm">One-Click Vocabulary Expansion</h3>
+        <p class="vocab-subtext">
+          Expand your database with thousands of high-frequency words, prefixes, and common everyday compound terms:
+        </p>
+        <div class="btn-group-wrap">
+          <button class="btn-action" id="gen2500Btn">+ Generate 2,500 High-Frequency Pack</button>
+          <button class="btn-action btn-green" id="gen6000Btn">+ Expand to 6,000 Fluent Words</button>
+          <button class="btn-action btn-purple" id="gen14000Btn">+ Expand to 14,000 Native Active Bank</button>
+          <button class="btn-icon btn-reset" id="resetVocabBtn">Reset to Default</button>
+        </div>
+
+        <div class="dropzone" id="dropArea">
+          <input type="file" id="fileInput" accept=".json,.csv,.txt" style="display: none;" />
+          <div class="drop-icon">📂</div>
+          <strong>Import your own 12,000–16,000 Word File (CSV / JSON / Anki TSV)</strong>
+          <p class="drop-subtext">
+            Format supported: <code>German, English, Article (der/die/das)</code> or standard Anki export.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 7: GRAMMAR & 16K LOGIC IN ENGLISH -->
+    <div id="grammarTab" class="view-panel">
+      <div class="card">
+        <h2 class="mb-sm">Why 12,000–16,000 Words Are Easier Than You Think</h2>
+        <div class="grammar-body">
+          <p class="mb-md">
+            Native German speakers communicate using 12,000 to 16,000 words not because they memorized 16,000 independent roots, but because the German language is <strong>morphologically modular</strong>.
+          </p>
+          
+          <h3 class="grammar-head">1. The Compound Noun Engine (Komposita)</h3>
+          <p class="mb-sm">German connects existing root words like building blocks. The final noun always dictates the gender:</p>
+          <ul class="grammar-list">
+            <li><code>das Haus</code> (house) + <code>die Tür</code> (door) = <strong>die Haustür</strong> (front door)</li>
+            <li><code>der Zahn</code> (tooth) + <code>die Bürste</code> (brush) = <strong>die Zahnbürste</strong> (toothbrush)</li>
+            <li><code>das Auto</code> (car) + <code>die Autobahn</code> (highway) + <code>die Raststätte</code> = <strong>die Autobahnraststätte</strong> (highway service station)</li>
+          </ul>
+
+          <h3 class="grammar-head">2. Suffix Rules: 100% Reliable Gender Determinants</h3>
+          <p class="mb-sm">Nouns ending with these suffixes never change their article:</p>
+          <div class="suffix-grid">
+            <div class="suffix-col der">
+              <strong>der (Masculine)</strong>
+              <div>-ling, -or, -ismus, -ist, -ant, -ent, -eur</div>
+            </div>
+            <div class="suffix-col die">
+              <strong>die (Feminine)</strong>
+              <div>-ung, -heit, -keit, -schaft, -tion, -tät, -ik, -ie</div>
+            </div>
+            <div class="suffix-col das">
+              <strong>das (Neuter)</strong>
+              <div>-chen, -lein, -ment, -um, -tum, -ma</div>
+            </div>
+          </div>
+
+          <h3 class="grammar-head">3. The Prefix Multiplier (Separable & Inseparable Verbs)</h3>
+          <p>A single base verb like <strong>stehen</strong> (to stand) produces dozens of distinct active words:</p>
+          <ul class="grammar-list mt-sm">
+            <li><strong>verstehen</strong> (to understand), <strong>aufstehen</strong> (to stand up/get up), <strong>ausstehen</strong> (to endure), <strong>entstehen</strong> (to originate), <strong>bestehen</strong> (to pass an exam / insist).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 8: LEXICON EXPLORER -->
+    <div id="lexiconTab" class="view-panel">
+      <div class="card">
+        <div class="lexicon-search-bar">
+          <input type="text" id="lexSearchInput" class="search-input" placeholder="Search across thousands of German or English words..." />
+        </div>
+        <div class="lex-table-wrap">
+          <table class="lex-table">
+            <thead>
+              <tr>
+                <th>Article</th>
+                <th>German Word</th>
+                <th>English Meaning</th>
+                <th>Audio</th>
+              </tr>
+            </thead>
+            <tbody id="lexiconTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Fullscreen Welcome Modal -->
+  <div class="modal-overlay" id="welcomeModal">
+    <div class="modal-card">
+      <div class="welcome-header">
+        <h1>Learn German LG</h1>
+        <p>Comprehensive 12,000–16,000 Native Vocabulary & Grammar Platform</p>
+      </div>
+
+      <div class="welcome-grid">
+        <div class="welcome-tile" data-launch="articleTab">
+          <h3>🎯 Der • Die • Das Trainer</h3>
+          <p>Master noun genders with instant article suffix feedback and audio pronunciation.</p>
+        </div>
+        <div class="welcome-tile" data-launch="enDeTab">
+          <h3>🇩🇪 English ➔ German (4 Choices)</h3>
+          <p>Practice vocabulary with context-driven 4-option translation challenges.</p>
+        </div>
+        <div class="welcome-tile" data-launch="voiceTab">
+          <h3>🎙️ Speaking & Microphone Test</h3>
+          <p>Speak with speech-recognition or practice precision text spelling.</p>
+        </div>
+        <div class="welcome-tile" data-launch="managerTab">
+          <h3>📦 12k–16k Vocab Pack Manager</h3>
+          <p>Scale the dictionary up to full native capacity or import external CSV lists.</p>
+        </div>
+      </div>
+
+      <button class="btn-primary-launch" id="closeModalBtn">Jetzt Starten • Start Learning</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
